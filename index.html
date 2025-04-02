@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री दुर्गा माँ का भव्य भंडारा</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #EF476F;
+            --accent: #FFD166;
+            --light: #FFFCF2;
+            --dark: #073B4C;
+            --saffron: #FF9933;
+            --gold: #FFD700;
+            --red: #CC3300;
+            --purple: #6A0DAD;
+            --pink: #FF6B6B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* वीडियो बैकग्राउंड हीरो सेक्शन */
+        .video-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+        
+        .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            filter: brightness(0.7);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 1;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        
+        .hero-content.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            line-height: 1.2;
+            animation: glow 2s infinite alternate;
+            background: linear-gradient(45deg, var(--gold), var(--accent), var(--pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 2;
+            background: rgba(255,255,255,0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        /* नेविगेशन बार */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(7,59,76,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar.scrolled {
+            padding: 1rem 0;
+            background: rgba(7,59,76,0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--pink);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--pink));
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* मुख्य कंटेंट */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        /* अबाउट सेक्शन */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 1s ease;
+            position: relative;
+        }
+        
+        .about-image.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,107,53,0.3), rgba(239,71,111,0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .about-image:hover::before {
+            opacity: 1;
+        }
+        
+        .about-content {
+            flex: 1;
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 1s ease 0.3s;
+        }
+        
+        .about-content.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-content h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* इवेंट डिटेल्स */
+        .event-details {
+            background: linear-gradient(135deg, #fff, #f9f9f9);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        
+        .event-details.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .event-details::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(5px);
+        }
+        
+        .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .detail-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            background: linear-gradient(45deg, var(--primary), var(--pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .detail-text h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .detail-text p {
+            color: #666;
+        }
+        
+        /* कार्यक्रम शेड्यूल */
+        .schedule-section {
+            margin-bottom: 6rem;
+        }
+        
+        .schedule-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .schedule-timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--purple));
+        }
+        
+        .schedule-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: white;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .schedule-item.visible {
+            opacity: 1;
+        }
+        
+        .schedule-item:nth-child(odd) {
+            left: 0;
+            transform: translateX(-20px);
+        }
+        
+        .schedule-item:nth-child(even) {
+            left: 50%;
+            transform: translateX(20px);
+        }
+        
+        .schedule-item.visible:nth-child(odd) {
+            transform: translateX(0);
+        }
+        
+        .schedule-item.visible:nth-child(even) {
+            transform: translateX(0);
+        }
+        
+        .schedule-item::after {
+            content: "";
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--purple));
+            box-shadow: 0 0 0 4px rgba(255,107,53,0.2);
+        }
+        
+        .schedule-item:nth-child(odd)::after {
+            right: -40px;
+        }
+        
+        .schedule-item:nth-child(even)::after {
+            left: -40px;
+        }
+        
+        .schedule-time {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .schedule-time i {
+            color: var(--purple);
+        }
+        
+        .schedule-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .schedule-content p {
+            color: #666;
+        }
+        
+        /* गैलरी */
+        .gallery-section {
+            margin-bottom: 6rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-overlay p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        /* काउंटडाउन */
+        .countdown-section {
+            background: linear-gradient(135deg, var(--purple), var(--primary));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 6rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/J5SXW0a.png') center/contain no-repeat;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .countdown-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .countdown-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-width: 120px;
+            backdrop-filter: blur(5px);
+            transform: scale(0);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .countdown-item.visible {
+            transform: scale(1);
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, white, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* संपर्क फॉर्म */
+        .contact-section {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/J5SXW0a.png') center/contain no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.8);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255,107,53,0.2);
+            background: white;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(239,71,111,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(239,71,111,0.4);
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* फुटर */
+        .footer {
+            background: linear-gradient(135deg, var(--dark), #0a2e38);
+            color: white;
+            padding: 5rem 2rem 2rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/J5SXW0a.png') center/contain no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo i {
+            color: var(--gold);
+        }
+        
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            color: var(--primary);
+            min-width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+        
+        /* ऑडियो प्लेयर */
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50px;
+            padding: 10px 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            transform: translateY(100px);
+            transition: all 0.5s ease;
+        }
+        
+        .audio-player.visible {
+            transform: translateY(0);
+        }
+        
+        .audio-control {
+            background: linear-gradient(45deg, var(--primary), var(--purple));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .audio-control:hover {
+            transform: scale(1.1);
+        }
+        
+        .audio-info {
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        /* एनिमेशन */
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--gold), 0 0 20px var(--gold); }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--gold), 0 0 40px var(--gold); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* रिस्पॉन्सिव डिजाइन */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .about-section {
+                flex-direction: column;
+            }
+            
+            .about-image, .about-content {
+                transform: none !important;
+            }
+            
+            .schedule-timeline::before {
+                left: 30px;
+            }
+            
+            .schedule-item {
+                width: calc(100% - 60px);
+                left: 60px;
+            }
+            
+            .schedule-item:nth-child(even) {
+                left: 60px;
+            }
+            
+            .schedule-item::after {
+                left: -40px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-section {
+                padding: 2rem;
+            }
+            
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .audio-player {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            
+            .audio-info {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ऑडियो प्लेयर -->
+    <div class="audio-player">
+        <div class="audio-control" id="audioControl">
+            <i class="fas fa-play"></i>
+        </div>
+        <div class="audio-info">दुर्गा आरती</div>
+        <audio id="bgAudio" loop>
+            <source src="/music/Ya Devi Sarvabhuteshu by Om Voices-yt.savetube.me.mp3" type="audio/mpeg">
+            <!-- अपनी आरती फाइल का लिंक डालें -->
+        </audio>
+    </div>
+
+    <!-- नेविगेशन बार -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-om"></i>
+                <span>दुर्गा भंडारा</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">हमारे बारे में</a></li>
+                <li><a href="#event">कार्यक्रम</a></li>
+                <li><a href="#gallery">गैलरी</a></li>
+                <li><a href="#contact">संपर्क</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- वीडियो बैकग्राउंड हीरो सेक्शन -->
+    <section class="video-hero" id="home">
+        <video autoplay muted loop class="video-background">
+            <source src="video/durga-maa-aarti-jai-ambe-gauri-by-alka-yagnik-mata-ki-aarti-mata-rani-ke-bhajan-aarti-aartii-ytshorts.savetube.me.mp4" type="video/mp4">
+            <!-- अपना वीडियो URL डालें -->
+        </video>
+        <div class="hero-content">
+            <h1>श्री दुर्गा माँ का भव्य भंडारा</h1>
+            <p>हमारे गाँव [गाँव का नाम] में आयोजित</p>
+            <a href="#event" class="submit-btn">कार्यक्रम विवरण देखें</a>
+        </div>
+        <div class="scroll-down" onclick="scrollToSection('about')">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- मुख्य कंटेंट -->
+    <div class="container">
+        <!-- अबाउट सेक्शन -->
+        <section id="about">
+            <div class="section-title">
+                <h2>हमारे बारे में</h2>
+            </div>
+            <div class="about-section">
+                <div class="about-image">
+                    <img src="/images/Maa Durga sitting on a tiger, realistic.png" alt="माँ दुर्गा">
+                </div>
+                <div class="about-content">
+                    <h3>पावन परंपरा का निर्वहन</h3>
+                    <p>हमारे गाँव [गाँव का नाम] में प्रतिवर्ष माँ दुर्गा के भंडारे का आयोजन किया जाता है। यह परंपरा पिछले [संख्या] वर्षों से निरंतर चली आ रही है।</p>
+                    <p>इस पावन अवसर पर हम सभी भक्तजन मिलकर माँ दुर्गा की आराधना करते हैं और सामूहिक भंडारे का आयोजन करते हैं।</p>
+                    <p>इस वर्ष भंडारा [तारीख] को [स्थान] पर आयोजित किया जाएगा। सभी श्रद्धालुओं को सादर आमंत्रित किया जाता है।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- इवेंट डिटेल्स -->
+        <section id="event">
+            <div class="section-title">
+                <h2>कार्यक्रम विवरण</h2>
+            </div>
+            <div class="event-details">
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="detail-text">
+                            <h4>दिनांक</h4>
+                            <p> शनिवार, 5 अप्रैल 2025</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="detail-text">
+                            <h4>समय</h4>
+                            <p>सुबह 9:00 बजे</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="detail-text">
+                            <h4>स्थान</h4>
+                            <p> ग्राम - सुकई / श्री माँ दुर्गा मंदिर</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="detail-text">
+                            <h4>भोजन</h4>
+                            <p>सात्विक शाकाहारी भोजन</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- कार्यक्रम शेड्यूल -->
+        <section class="schedule-section">
+            <div class="section-title">
+                <h2>कार्यक्रम शेड्यूल</h2>
+            </div>
+            <div class="schedule-timeline">
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <i class="fas fa-sun"></i>
+                        सुबह 9:00 बजे
+                    </div>
+                    <div class="schedule-content">
+                        <h4>माँ दुर्गा की आरती</h4>
+                        <p>मंदिर में विधि-विधान से आरती</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <i class="fas fa-music"></i>
+                        सुबह 10:30 बजे
+                    </div>
+                    <div class="schedule-content">
+                        <h4>भजन-कीर्तन</h4>
+                        <p>माँ दुर्गा के भजन और कीर्तन</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <i class="fas fa-praying-hands"></i>
+                        दोपहर 12:00 बजे
+                    </div>
+                    <div class="schedule-content">
+                        <h4>प्रसाद वितरण</h4>
+                        <p>सभी भक्तों को प्रसाद वितरण</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">
+                        <i class="fas fa-utensils"></i>
+                        दोपहर 1:00 बजे
+                    </div>
+                    <div class="schedule-content">
+                        <h4>सामूहिक भंडारा</h4>
+                        <p>सभी के लिए भोजन की व्यवस्था</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- गैलरी -->
+        <section id="gallery">
+            <div class="section-title">
+                <h2>पिछले वर्ष की झलकियाँ</h2>
+            </div>
+            <div class="gallery-section">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/images/maa durga.jpg" alt="भंडारा">
+                        <div class="gallery-overlay">
+                            <h4>माँ दुर्गा आरती</h4>
+                            <p>पिछले वर्ष की आरती का दृश्य</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/maa durga.jpg" alt="भंडारा">
+                        <div class="gallery-overlay">
+                            <h4>भक्ति संगीत</h4>
+                            <p>भजन-कीर्तन का पावन दृश्य</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/maa durga.jpg" alt="भंडारा">
+                        <div class="gallery-overlay">
+                            <h4>प्रसाद वितरण</h4>
+                            <p>भक्तों को प्रसाद वितरण</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/maa durga.jpg" alt="भंडारा">
+                        <div class="gallery-overlay">
+                            <h4>सामूहिक भोज</h4>
+                            <p>सभी के लिए भंडारे का आयोजन</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- काउंटडाउन -->
+        <section class="countdown-section">
+            <div class="countdown-container">
+                <h3 class="countdown-title">भंडारा शुरू होने में शेष:</h3>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">दिन</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">घंटे</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">मिनट</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">सेकंड</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- संपर्क फॉर्म -->
+        <section id="contact">
+            <div class="section-title">
+                <h2>संपर्क करें</h2>
+            </div>
+            <div class="contact-section">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">आपका नाम</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">ईमेल</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">फोन नंबर</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">संदेश</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">संदेश भेजें</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- फुटर -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-om"></i>
+                    <span>दुर्गा भंडारा</span>
+                </div>
+                <p>हमारे गाँव सुकई में आयोजित होने वाला माँ दुर्गा का भव्य भंडारा</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>त्वरित लिंक</h3>
+                <ul>
+                    <li><a href="#about">हमारे बारे में</a></li>
+                    <li><a href="#event">कार्यक्रम</a></li>
+                    <li><a href="#gallery">गैलरी</a></li>
+                    <li><a href="#contact">संपर्क</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>संपर्क सूत्र</h3>
+                <p><i class="fas fa-map-marker-alt"></i> सुकई, पौड़ी गढ़वाल, उत्तराखंड**</p>
+                <p><i class="fas fa-phone"></i> +91 8865095410</p>
+                <p><i class="fas fa-envelope"></i> shridurga@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2023 दुर्गा भंडारा समिति. सर्वाधिकार सुरक्षित</p>
+        </div>
+    </footer>
+
+    <script>
+        // नेवबार स्क्रॉल इफेक्ट
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // ऑडियो प्लेयर दिखाएं
+            const audioPlayer = document.querySelector('.audio-player');
+            if (window.scrollY > 300) {
+                audioPlayer.classList.add('visible');
+            }
+        });
+
+        // स्क्रॉल एनिमेशन
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.hero-content, .about-image, .about-content, .event-details, .schedule-item, .gallery-item, .countdown-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // स्क्रॉल डाउन बटन
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+  // काउंटडाउन टाइमर फंक्शन
+function updateCountdown() {
+    // अपनी इवेंट डेट सेट करें (YYYY, MM-1, DD, HH, MM, SS)
+    const eventDate = new Date(2025, 3, 5, 12, 0, 0); // 5 अप्रैल 2025, सुबह 12:00 बजे
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        // जब इवेंट शुरू हो जाए, तो काउंटडाउन हटाकर संदेश दिखाएं
+        document.getElementById('countdown').innerHTML = "<h2>🚀 भंडारा शुरू हो चुका है! 🙏</h2>";
+    }
+}
+
+// हर सेकंड काउंटडाउन अपडेट करें
+setInterval(updateCountdown, 1000);
+updateCountdown(); // पहली बार तुरंत अपडेट करें
+     
+        // हर सेकंड काउंटडाउन अपडेट करें
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // पहली बार तुरंत अपडेट करें
+
+        // फॉर्म सबमिशन
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('आपका संदेश प्राप्त हुआ! हम जल्द ही आपसे संपर्क करेंगे।');
+            this.reset();
+        });
+
+        // ऑडियो प्लेयर कंट्रोल
+        const audioControl = document.getElementById('audioControl');
+        const bgAudio = document.getElementById('bgAudio');
+        let isPlaying = false;
+        
+        audioControl.addEventListener('click', function() {
+            if (isPlaying) {
+                bgAudio.pause();
+                audioControl.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                bgAudio.play();
+                audioControl.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // वीडियो म्यूट/अनम्यूट बटन (वैकल्पिक)
+        const videoHero = document.querySelector('.video-hero');
+        const muteButton = document.createElement('div');
+        muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+        muteButton.style.position = 'absolute';
+        muteButton.style.bottom = '100px';
+        muteButton.style.right = '30px';
+        muteButton.style.color = 'white';
+        muteButton.style.fontSize = '1.5rem';
+        muteButton.style.cursor = 'pointer';
+        muteButton.style.zIndex = '10';
+        muteButton.style.background = 'rgba(0,0,0,0.5)';
+        muteButton.style.width = '40px';
+        muteButton.style.height = '40px';
+        muteButton.style.borderRadius = '50%';
+        muteButton.style.display = 'flex';
+        muteButton.style.alignItems = 'center';
+        muteButton.style.justifyContent = 'center';
+        videoHero.appendChild(muteButton);
+        
+        const videoBg = document.querySelector('.video-background');
+        muteButton.addEventListener('click', function() {
+            if (videoBg.muted) {
+                videoBg.muted = false;
+                muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+                videoBg.muted = true;
+                muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        });
+        
+        // कन्फेटी एनिमेशन (वैकल्पिक)
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.borderRadius = '50%';
+            confetti.style.top = '0';
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.zIndex = '1000';
+            confetti.style.pointerEvents = 'none';
+            document.body.appendChild(confetti);
+            
+            const animation = confetti.animate([
+                { top: '0', opacity: 1, transform: 'rotate(0deg)' },
+                { top: '100vh', opacity: 0, transform: 'rotate(360deg)' }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
+            });
+            
+            animation.onfinish = () => confetti.remove();
+        }
+        
+        // भंडारा शुरू होने पर कन्फेटी (वैकल्पिक)
+         setInterval(createConfetti, 100); // डेमो के लिए
+    </script>
+</body>
+</html>
